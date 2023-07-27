@@ -2,6 +2,7 @@ import Image from 'next/image';
 import React, { useState } from 'react';
 import formImage from '../../public/images/formulario/wom1.jpg';
 import { createUser } from './api/users.api'
+import { useRouter } from 'next/router';
 
 export default function Formulario() {
 
@@ -11,6 +12,8 @@ export default function Formulario() {
   const [usernameError, setUsernameError] = useState('');
   const [emailError, setEmailError] = useState('');
 
+
+  const router = useRouter();
   const [formData, setFormData] = useState({
     fullName: '',
     age: '',
@@ -19,6 +22,7 @@ export default function Formulario() {
     image: '',
     userName: '',
   });
+
 
   // const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
   const telephoneRegex = /^\(\d{2}\)\d{8}$/;
@@ -86,6 +90,8 @@ export default function Formulario() {
     } catch (error) {
 
       console.error('Error al crear el usuario:', error);
+    } finally {
+      router.push("/");
     }
   };
 
@@ -162,20 +168,20 @@ export default function Formulario() {
               {usernameError && <p className="text-red-500">{usernameError}</p>}
 
               {/* <p>picker de foto de perfil</p> */}
-              {/* 
+
               <div className="flex items-center justify-between">
-                <p className="text-sm text-gray-500">
+                {/* <p className="text-sm text-gray-500">
                   No account?
                   <a className="underline" href="">Sign up</a>
-                </p>
+                </p> */}
 
                 <button
                   type="submit"
-                  className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
+                  className="inline-block rounded-lg bg-blue-500 mt-5 px-5 py-3 text-sm font-medium text-white"
                 >
                   Sign in
                 </button>
-              </div> */}
+              </div>
             </div>
           </form>
         </div>
