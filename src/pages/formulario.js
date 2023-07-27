@@ -161,8 +161,8 @@ export default function Formulario() {
 
               {usernameError && <p className="text-red-500">{usernameError}</p>}
 
-              <p>picker de foto de perfil</p>
-
+              {/* <p>picker de foto de perfil</p> */}
+              {/* 
               <div className="flex items-center justify-between">
                 <p className="text-sm text-gray-500">
                   No account?
@@ -175,7 +175,7 @@ export default function Formulario() {
                 >
                   Sign in
                 </button>
-              </div>
+              </div> */}
             </div>
           </form>
         </div>
